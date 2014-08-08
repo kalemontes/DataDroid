@@ -97,7 +97,7 @@ public abstract class RequestManager {
 
     private final Class<? extends RequestService> mRequestService;
     private final HashMap<Request, RequestReceiver> mRequestReceiverMap;
-    private final LruCache<Request, Bundle> mMemoryCache;
+    protected LruCache<Request, Bundle> mMemoryCache;
 
     protected RequestManager(Context context, Class<? extends RequestService> requestService) {
         mContext = context.getApplicationContext();

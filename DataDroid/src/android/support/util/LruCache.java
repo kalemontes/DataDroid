@@ -34,11 +34,11 @@ public class LruCache<K, V> {
     private int size;
     private int maxSize;
 
-    private int putCount;
-    private int createCount;
-    private int evictionCount;
-    private int hitCount;
-    private int missCount;
+    protected int putCount;
+    protected int createCount;
+    protected int evictionCount;
+    protected int hitCount;
+    protected int missCount;
 
     /**
      * @param maxSize for caches that do not override {@link #sizeOf}, this is
@@ -59,7 +59,7 @@ public class LruCache<K, V> {
      * head of the queue. This returns null if a value is not cached and cannot
      * be created.
      */
-    public final V get(K key) {
+    public V get(K key) {
         if (key == null) {
             throw new NullPointerException("key == null");
         }
@@ -113,7 +113,7 @@ public class LruCache<K, V> {
      *
      * @return the previous value mapped by {@code key}.
      */
-    public final V put(K key, V value) {
+    public V put(K key, V value) {
         if (key == null || value == null) {
             throw new NullPointerException("key == null || value == null");
         }
@@ -174,7 +174,7 @@ public class LruCache<K, V> {
      *
      * @return the previous value mapped by {@code key}.
      */
-    public final V remove(K key) {
+    public V remove(K key) {
         if (key == null) {
             throw new NullPointerException("key == null");
         }
